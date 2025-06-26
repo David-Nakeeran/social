@@ -31,10 +31,42 @@ export default async function UserProfilePage() {
     );
   }
 
+  async function getPosts() {
+    try {
+      const posts = await db.query(
+        `SELECT * FROM social_posts WHERE user_id = $1`,
+        [userId]
+      );
+      return posts.rows;
+    } catch (error) {
+      let message = "Unknown Error";
+      if (error instanceof Error) message = error.message;
+      console.error(message);
+    }
+  }
+
+  const posts = (await getPosts()) || [];
+
+  const postElements = posts.map((element) => {
+    return (
+      <div key={element.id}>
+        <p>{element.content}</p>
+        <p>{new Date(element.created_at).toLocaleString("en-GB")}</p>
+      </div>
+    );
+  });
+
   return (
     <main>
       <h1>Welcome {user.username}</h1>
       <p>{user.bio}</p>
+      <div>
+        {postElements.length > 0 ? (
+          postElements
+        ) : (
+          <p>You haven&apos;t made any posts yet!</p>
+        )}
+      </div>
     </main>
   );
 }
