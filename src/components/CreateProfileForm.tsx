@@ -1,7 +1,8 @@
 "use client";
 import { createProfile } from "@/lib/actions";
+import { UserIdProps } from "@/types/dataTypes";
 
-export default function CreateProfileForm({ userId }) {
+export default function CreateProfileForm({ userId }: UserIdProps) {
   const createProfileWithId = createProfile.bind(null, userId);
   return (
     <form action={createProfileWithId}>
