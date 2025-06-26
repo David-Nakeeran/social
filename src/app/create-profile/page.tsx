@@ -10,6 +10,7 @@ export default async function CreateProfilePage() {
   if (!userId) {
     return redirect("/sign-in");
   }
+
   return (
     <>
       <h1>Create profile, protected...I hope</h1>
