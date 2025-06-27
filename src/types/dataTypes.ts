@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type UserIdProps = {
   userId: string;
 };
@@ -28,4 +30,9 @@ export type PostProps = {
     id: number;
     content: string;
   };
+};
+
+export type ActiveLinkProps = {
+  href: string;
+  children: ReactNode; // Any react element, jsx elements
 };

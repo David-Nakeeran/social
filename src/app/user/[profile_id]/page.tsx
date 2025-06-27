@@ -31,16 +31,20 @@ export default async function UsernameProfilePage({ params }: ParamsProfileId) {
 
   if (user.length === 0) {
     return (
-      <main>
-        <h1>User not found</h1>
+      <main className="text-[#d1fae5] p-6">
+        <h1 className="text-2xl font-bold text-red-500">User not found</h1>
       </main>
     );
   }
 
   return (
-    <main>
-      <h1>You are viewing {user.username} profile page</h1>
-      <p>{user.bio}</p>
+    <main className="text-[#d1fae5] p-6 max-w-2xl mx-auto">
+      <div className="bg-[#1e1e2f] border border-[#22c55e] rounded-lg p-6">
+        <h1 className="text-3xl font-bold mb-4">
+          <p>{user.username} profile page</p>
+        </h1>
+        <p className="text-[#a7cfa3] whitespace-pre-line">Bio: {user.bio}</p>
+      </div>
     </main>
   );
 }

@@ -32,9 +32,11 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header />
-          {children}
-          <Footer />
+          <div className="grid h-dvh grid-cols-1 grid-rows-[auto_1fr_auto] place-items-center overflow-y-auto p-3 bg-[#0f0f0f] text-[#e0ffe0]">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </body>
       </html>
     </ClerkProvider>
