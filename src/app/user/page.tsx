@@ -1,6 +1,7 @@
 import { db } from "@/utils/dbConnection";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import LocalDate from "@/components/LocalDate";
 
 export default async function UserProfilePage() {
   const { userId } = await auth();
@@ -51,7 +52,7 @@ export default async function UserProfilePage() {
     return (
       <div key={element.id}>
         <p>{element.content}</p>
-        <p>{new Date(element.created_at).toLocaleString("en-GB")}</p>
+        <LocalDate dateString={element.created_at.toISOString()} />
       </div>
     );
   });
