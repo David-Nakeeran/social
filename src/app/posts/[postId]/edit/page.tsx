@@ -34,8 +34,8 @@ export default async function EditUserPostPage({ params }: ParamsPostId) {
   const post = (await getPost()) || [];
 
   return (
-    <>
+    <main className="w-2/3">
       <PostUpdateForm post={post} />
-    </>
+    </main>
   );
 }

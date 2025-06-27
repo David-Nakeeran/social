@@ -11,8 +11,7 @@ export default async function PostNewPage() {
   }
   await ensureUserHasProfile({ userId });
   return (
-    <main>
-      <h1>Make a new social post</h1>
+    <main className="w-2/3">
       <PostForm userId={userId} />
     </main>
   );

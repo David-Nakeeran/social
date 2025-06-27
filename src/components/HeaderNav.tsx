@@ -8,13 +8,15 @@ import {
 
 export default function HeaderNav() {
   return (
-    <nav>
+    <nav className="flex items-center justify-center">
       <SignedIn>
         <UserButton />
       </SignedIn>
       <SignedOut>
-        <SignInButton mode="modal" />
-        <SignUpButton mode="modal" />
+        <div className="flex gap-4">
+          <SignInButton mode="modal" />
+          <SignUpButton mode="modal" />
+        </div>
       </SignedOut>
     </nav>
   );

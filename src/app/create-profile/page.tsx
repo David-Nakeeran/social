@@ -4,17 +4,14 @@ import CreateProfileForm from "@/components/CreateProfileForm";
 
 export default async function CreateProfilePage() {
   const { userId } = await auth();
-  //   const user = await currentUser();
-  //   console.log(userId);
-  //   console.log(user);
+
   if (!userId) {
     return redirect("/sign-in");
   }
 
   return (
-    <>
-      <h1>Create profile, protected...I hope</h1>
+    <main className="w-2/3">
       <CreateProfileForm userId={userId} />
-    </>
+    </main>
   );
 }
