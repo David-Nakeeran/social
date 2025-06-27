@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import LocalDate from "@/components/LocalDate";
+import DeleteUserPostForm from "@/components/DeleteUserPostForm";
 
 export default async function UserProfilePage() {
   const { userId } = await auth();
@@ -35,7 +36,9 @@ export default async function UserProfilePage() {
   async function getPosts() {
     try {
       const posts = await db.query(
-        `SELECT * FROM social_posts WHERE user_id = $1`,
+        `SELECT * FROM social_posts WHERE user_id = $1
+        Order BY created_at DESC
+        `,
         [userId]
       );
       return posts.rows;
@@ -49,10 +52,12 @@ export default async function UserProfilePage() {
   const posts = (await getPosts()) || [];
 
   const postElements = posts.map((element) => {
+    const postId = parseInt(element.id);
     return (
       <div key={element.id}>
         <p>{element.content}</p>
         <LocalDate dateString={element.created_at.toISOString()} />
+        <DeleteUserPostForm postId={postId} userId={userId} />
       </div>
     );
   });
