@@ -5,6 +5,9 @@ import { dark } from "@clerk/themes";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,9 +35,13 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header />
-          {children}
-          <Footer />
+          <ThemeProvider attribute="class">
+            <Theme appearance="dark">
+              <Header />
+              {children}
+              <Footer />
+            </Theme>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
