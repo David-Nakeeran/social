@@ -3,11 +3,21 @@ import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import LocalDate from "@/components/LocalDate";
+import { ensureUserHasProfile } from "@/lib/guards";
 
 export default async function TimeLinePage() {
   const { userId } = await auth();
   if (!userId) {
     return redirect("/sign-in");
+  }
+
+  await ensureUserHasProfile({ userId });
+
+  const profile = await db.query("SELECT * FROM profiles WHERE id = $1", [
+    userId,
+  ]);
+  if (!profile.rows.length) {
+    return redirect("/create-profile");
   }
 
   async function getAllPosts() {
