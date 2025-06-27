@@ -10,3 +10,7 @@ export type ErrorGlobalProps = {
 export type DateProps = {
   dateString: string;
 };
+
+export type PostIdProps = {
+  postId: number;
+};
