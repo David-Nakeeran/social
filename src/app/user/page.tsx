@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import LocalDate from "@/components/LocalDate";
 import DeleteUserPostForm from "@/components/DeleteUserPostForm";
 import { ensureUserHasProfile } from "@/lib/guards";
+import Link from "next/link";
 
 export default async function UserProfilePage() {
   const { userId } = await auth();
@@ -61,6 +62,7 @@ export default async function UserProfilePage() {
         <p>{element.content}</p>
         <LocalDate dateString={element.created_at.toISOString()} />
         <DeleteUserPostForm postId={postId} userId={userId} />
+        <Link href={`/posts/${element.id}/edit`}>Edit post</Link>
       </div>
     );
   });

@@ -38,3 +38,15 @@ export async function deleteUserPost(postId: number, userId: string) {
   ]);
   revalidatePath("/user");
 }
+
+export async function updatePost(id: number, formData: FormData) {
+  const postData = {
+    content: formData.get("content"),
+  };
+  await db.query(`UPDATE social_posts SET content = $1 WHERE id = $2`, [
+    postData.content,
+    id,
+  ]);
+  revalidatePath(`/user`);
+  redirect(`/user`);
+}

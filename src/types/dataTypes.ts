@@ -14,3 +14,18 @@ export type DateProps = {
 export type PostIdProps = {
   postId: number;
 };
+
+export type ParamsProfileId = {
+  params: Promise<{ profile_id: string }>;
+};
+
+export type ParamsPostId = {
+  params: Promise<{ postId: string }>;
+};
+
+export type PostProps = {
+  post: {
+    id: number;
+    content: string;
+  };
+};
