@@ -29,3 +29,11 @@ export async function createPost(id: string, formData: FormData) {
   revalidatePath("/user");
   redirect("/user");
 }
+
+export async function deleteUserPost(postId: number, userId: string) {
+  await db.query(`DELETE FROM social_posts WHERE id = $1 AND user_id = $2`, [
+    postId,
+    userId,
+  ]);
+  revalidatePath("/user");
+}
