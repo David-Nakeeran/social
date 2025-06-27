@@ -13,7 +13,8 @@ export async function createProfile(id: string, formData: FormData) {
     `INSERT INTO profiles (id, username, bio) VALUES($1, $2, $3)`,
     [id, profileData.username, profileData.bio]
   );
-  // added revalidate and redirect
+  revalidatePath("/user");
+  redirect("/user");
 }
 
 export async function createPost(id: string, formData: FormData) {
