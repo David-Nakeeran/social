@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Social
 
-## Getting Started
+Social app where users can create profiles, post messages, and explore a community timeline. Built with Next.js, Clerk authentication, PostgreSQL, and Radix UI components.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Social](https://social-davids-projects-5e33b643.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This full stack app allows users to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Sign up and sign in
 
-## Learn More
+- Create user profiles
 
-To learn more about Next.js, take a look at the following resources:
+- Create posts edit and delete them
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- All user posts are displayed on the timeline
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Users can view other users profiles
 
-## Deploy on Vercel
+## Reflection
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Unfortunately I didn't have time this weekend to work on the project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Learning Typescript was pretty hard, if you can recommend any tutorials that would be great!
+
+Were there any requirements or goals that you were unable to achieve?
+
+- Junction tables, followers
+
+What was difficult about the tasks you didn't complete?
+
+- I'm wondering if I could have moved my db select queries into the actions file, but then I think that is more for form submission and button clicks. Maybe the API way Manny showed might have been a good way. I will have to look into that after the course.
+
+- Not sure I like radix that much, maybe I need to use it a bit more.
+
+- Timeline polling would be a nice touch but didn't have time.
+
+- I would love to learn about websockets, is this compatible with vercel though? As I read it isn't? If you have any tutorials or articles please send them my way, thank you!
+
+## Technologies Used
+
+- Frontend: Next.js (App Router), Tailwind CSS, Radix UI
+
+- Backend: PostgreSQL, Clerk for auth
+
+Database access: Node-Postgres (pg)
+
+- Deployment: Vercel (or your hosting of choice)
+
+## References
+
+- https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript
+
+- https://nextjs.org/docs/app/getting-started/error-handling
+
+- https://nextjs.org/docs/app/api-reference/file-conventions/not-found
+
+- https://www.radix-ui.com/themes/docs/theme/dark-mode
+
+- https://nextjs.org/learn/pages-router/dynamic-routes-polishing-post-page
+
+- https://www.radix-ui.com/primitives/docs/components/alert-dialog
+
+- NextJs docs in general
